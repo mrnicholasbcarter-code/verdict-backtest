@@ -5,7 +5,7 @@ with built-in fee models for Kalshi (bounded profit) and Polymarket (flat maker-
 
 Example:
     >>> import numpy as np
-    >>> from backtest_harness import MonteCarloSimulator, BoundedProfitFeeModel
+    >>> from backtest_harness import MonteCarloSimulator, BoundedProfitFeeModel, tearsheet
     >>>
     >>> # Simulate equity paths
     >>> returns = np.array([0.05, -0.10, 0.02, 0.15, -0.05])
@@ -20,8 +20,13 @@ Example:
     >>> # Calculate Kalshi-style fees
     >>> fee_model = BoundedProfitFeeModel(percent_of_profit=0.07, maximum_fee_cents=0.05)
     >>> fee = fee_model.calculate_fee(entry_cents=50.0, payout_cents=100.0)
+    >>>
+    >>> # Tearsheet
+    >>> t = tearsheet(returns, periods_per_year=252)
+    >>> print(f"Sharpe: {t['sharpe']:.2f}")
 """
 
+from backtest_harness.analytics import split_walk_forward, tearsheet
 from backtest_harness.fee_models import (
     BoundedProfitFeeModel,
     FlatMakerTakerModel,
@@ -29,11 +34,13 @@ from backtest_harness.fee_models import (
 )
 from backtest_harness.monte_carlo import MonteCarloSimulator
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "MonteCarloSimulator",
     "BoundedProfitFeeModel",
     "FlatMakerTakerModel",
     "FeeModel",
+    "tearsheet",
+    "split_walk_forward",
 ]

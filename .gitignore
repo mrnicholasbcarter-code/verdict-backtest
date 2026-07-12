@@ -18,3 +18,13 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+env/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+*.log
+node_build.log
+build.log
+patch_*.py
+*.bak
+.env

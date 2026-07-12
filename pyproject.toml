@@ -8,10 +8,17 @@ version = "0.1.0"
 description = "Monte-Carlo Simulation engine"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["numpy"]
+# numba 0.60+ supports Python 3.12 and requires numpy >=1.22,<2.3 (we pin <2.3
+# for ABI compatibility with llvmlite 0.48 / numba 0.66).
+dependencies = [
+    "numpy>=1.24,<2.3",
+    "numba>=0.60; python_version >= '3.12'",
+    "numba>=0.58; python_version < '3.12'",
+]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov"]
+viz = ["matplotlib>=3.7"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/backtest_harness"]
