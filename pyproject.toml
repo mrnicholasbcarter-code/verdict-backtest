@@ -5,35 +5,13 @@ build-backend = "hatchling.build"
 [project]
 name = "backtest-harness"
 version = "0.1.0"
-description = "Event-driven backtesting engine with high-fidelity fee modeling and Monte Carlo simulations."
+description = "Monte-Carlo Simulation engine"
 readme = "README.md"
-license = "MIT"
 requires-python = ">=3.10"
-
-dependencies = [
-    "numpy>=1.26.0",
-    "pandas>=2.0.0",
-    "scipy>=1.11.0"
-]
-
+dependencies = ["numpy"]
 
 [project.optional-dependencies]
-dev = [
-    "build>=1.2.0",
-    "pytest>=8.0.0",
-]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+dev = ["pytest", "pytest-cov"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/backtest_harness"]
-
-[tool.hatch.build.targets.sdist]
-include = [
-    "/src",
-    "/tests",
-    "/README.md",
-    "/pyproject.toml",
-]
