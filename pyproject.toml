@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "verdict-backtest"
+name = "llm-gate-backtest"
 version = "0.1.0"
 description = "Monte-Carlo simulation engine for LLM routing strategy validation"
 readme = "README.md"
