@@ -1,4 +1,5 @@
 import pytest
+
 from backtest_harness.fee_models import BoundedProfitFeeModel, FlatMakerTakerModel
 
 

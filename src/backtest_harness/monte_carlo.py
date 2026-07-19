@@ -24,7 +24,7 @@ def _cumulative_product_numba(multipliers: np.ndarray, starting_equity: float) -
     """
     num_simulations, trades_per_sim = multipliers.shape
     result = np.empty_like(multipliers)
-    for i in prange(num_simulations):
+    for i in prange(num_simulations):  # type: ignore[attr-defined]
         result[i, 0] = starting_equity * multipliers[i, 0]
         for j in range(1, trades_per_sim):
             result[i, j] = result[i, j - 1] * multipliers[i, j]
@@ -104,9 +104,7 @@ class MonteCarloSimulator:
         final_equities = cumulative_paths[:, -1]
 
         # Replace nans (from 0 * inf) with 0.0 since hitting 0 should just stay 0
-        final_equities = np.nan_to_num(
-            final_equities, nan=0.0, posinf=np.inf, neginf=-np.inf
-        )
+        final_equities = np.nan_to_num(final_equities, nan=0.0, posinf=np.inf, neginf=-np.inf)
 
         # Determine percentiles ignoring remaining potential nan issues,
         # using nearest to avoid inf-inf=nan

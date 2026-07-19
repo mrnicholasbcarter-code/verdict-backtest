@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "backtest-harness"
+name = "llm-gate-backtest"
 version = "0.1.0"
 description = "Monte-Carlo Simulation engine"
 readme = "README.md"
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov"]
+dev = ["pytest", "pytest-cov", "code-review-graph>=2.3.7"]
 viz = ["matplotlib>=3.7"]
 
 [tool.hatch.build.targets.wheel]
@@ -33,7 +33,6 @@ per-file-ignores = { "tests/*" = ["S101"] }
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
-indent-width = 4
 line-ending = "lf"
 
 [tool.ruff.lint.pydocstyle]
