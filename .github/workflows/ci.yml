@@ -7,12 +7,39 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
       - name: Run tests
         run: |
-          if [ -f package.json ]; then
-            npm ci && npm test
-          elif [ -f pyproject.toml ]; then
-            python3 -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]" && pytest
-          fi
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+          python -m pytest
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Build and check package
+        run: |
+          python -m pip install --upgrade pip build twine
+          python -m build
+          python -m twine check dist/*
+          python -m venv "$RUNNER_TEMP/verdict-backtest-wheel"
+          "$RUNNER_TEMP/verdict-backtest-wheel/bin/python" -m pip install --upgrade pip
+          "$RUNNER_TEMP/verdict-backtest-wheel/bin/python" -m pip install dist/*.whl
+          "$RUNNER_TEMP/verdict-backtest-wheel/bin/python" -c "from backtest_harness import MonteCarloSimulator; assert MonteCarloSimulator"
+          python -m venv "$RUNNER_TEMP/verdict-backtest-sdist"
+          "$RUNNER_TEMP/verdict-backtest-sdist/bin/python" -m pip install --upgrade pip
+          "$RUNNER_TEMP/verdict-backtest-sdist/bin/python" -m pip install dist/*.tar.gz
+          "$RUNNER_TEMP/verdict-backtest-sdist/bin/python" -c "from backtest_harness import MonteCarloSimulator; assert MonteCarloSimulator"

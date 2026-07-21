@@ -1,6 +1,8 @@
 # Architecture
 
-`backtest-harness` provides focused primitives that can be composed by larger trading research systems.
+`verdict-backtest` provides focused primitives that can be composed by larger
+trading research systems. The compatible Python import namespace is
+`backtest_harness`.
 
 ## Core modules
 
@@ -33,13 +35,13 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    PM[prediction-market-sdk] --> BH[backtest-harness]
+    PM[prediction-market-sdk] --> BH[verdict-backtest]
     BH --> EM[edge-mining-framework]
     BH --> RE[trade-risk-engine]
     EM --> KT[kalshi-trader]
     RE --> KT
     KT --> UI[trading-cockpit-ui]
-    LLM[llm-gate] --> KT
+    LLM[verdict] --> KT
 ```
 
 ## Design principles
