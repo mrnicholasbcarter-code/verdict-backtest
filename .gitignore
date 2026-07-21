@@ -29,3 +29,6 @@ patch_*.py
 *.bak
 .env
 .coverage
+
+# code-review-graph
+.code-review-graph/

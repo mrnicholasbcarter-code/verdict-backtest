@@ -34,7 +34,9 @@ def _to_returns(returns: Any) -> np.ndarray:
     return arr
 
 
-def tearsheet(returns: Any, periods_per_year: int = _TRADING_PERIODS, as_dict: bool = True) -> dict | None:
+def tearsheet(
+    returns: Any, periods_per_year: int = _TRADING_PERIODS, as_dict: bool = True
+) -> dict | None:
     """Compute a performance "tearsheet" of key stats for a returns series.
 
     Args:
@@ -161,9 +163,7 @@ def _print_tearsheet(stats: dict) -> None:
     print("=" * (width + 16))
 
 
-def split_walk_forward(
-    returns: Any, n_splits: int = 5
-) -> Iterator[tuple[np.ndarray, np.ndarray]]:
+def split_walk_forward(returns: Any, n_splits: int = 5) -> Iterator[tuple[np.ndarray, np.ndarray]]:
     """Yield ``(train_idx, test_idx)`` index pairs for walk-forward validation.
 
     Splits the series into ``n_splits`` contiguous, non-overlapping blocks.
@@ -203,7 +203,7 @@ def split_walk_forward(
     # (Document the rationale: requires >= 1 training block to have fold k=1.)
     for k in range(1, n_splits):
         train_idx = all_idx[: bounds[k]]
-        test_idx = all_idx[bounds[k]: bounds[k + 1]]
+        test_idx = all_idx[bounds[k] : bounds[k + 1]]
         if test_idx.size == 0:  # pragma: no cover - trailing split round-off
             continue
         yield train_idx, test_idx

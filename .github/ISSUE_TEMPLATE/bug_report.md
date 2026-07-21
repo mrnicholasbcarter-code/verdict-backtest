@@ -19,7 +19,7 @@ labels: bug
 ## Environment
 
 - Python version:
-- backtest-harness version or commit:
+- verdict-backtest version or commit:
 - OS:
 
 ## Additional context

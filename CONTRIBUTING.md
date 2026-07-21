@@ -1,6 +1,9 @@
 # Contributing
 
-Thanks for improving `backtest-harness`. This repo is intentionally small, auditable, and test-first.
+Thanks for improving `verdict-backtest`. The released distribution is
+`verdict-backtest`; the compatible Python namespace remains
+`backtest_harness`. This repo is intentionally small, auditable, and
+test-first.
 
 ## Local setup
 
