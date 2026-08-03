@@ -33,6 +33,7 @@ from backtest_harness.fee_models import (
     FlatMakerTakerModel,
 )
 from backtest_harness.monte_carlo import MonteCarloSimulator
+from backtest_harness.provider_receipts import build_backtest_receipt
 
 __version__ = "0.2.0"
 
