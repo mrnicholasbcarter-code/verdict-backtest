@@ -32,3 +32,7 @@ patch_*.py
 
 # code-review-graph
 .code-review-graph/
+
+# Local agent orchestration state (Claude Flow / hive-mind sessions)
+.claude-flow/
+.hive-mind/
