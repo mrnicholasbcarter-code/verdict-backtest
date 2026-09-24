@@ -66,7 +66,9 @@ evidence = run_counterfactual(
     fee_trades=[(50.0, 100.0), (40.0, 100.0)],
 )
 mc = evidence["results"]["monte_carlo"]
-print(f"P50 ${mc['p50_equity']:.2f}  ruin {mc['prob_ruin']:.2%}  hash {evidence['results_hash'][:19]}")
+print(
+    f"P50 ${mc['p50_equity']:.2f}  ruin {mc['prob_ruin']:.2%}  hash {evidence['results_hash'][:19]}"
+)
 ```
 
 ---
