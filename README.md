@@ -1,7 +1,7 @@
 # Verdict Backtest — Monte Carlo Simulation Engine
 
-[![CI](https://github.com/verdict/verdict-backtest/actions/workflows/ci.yml/badge.svg)](https://github.com/verdict/verdict-backtest/actions/workflows/ci.yml)
-[![Lint](https://github.com/verdict/verdict-backtest/actions/workflows/lint.yml/badge.svg)](https://github.com/verdict/verdict-backtest/actions/workflows/lint.yml)
+[![CI](https://github.com/mrnicholasbcarter-code/verdict-backtest/actions/workflows/ci.yml/badge.svg)](https://github.com/mrnicholasbcarter-code/verdict-backtest/actions/workflows/ci.yml)
+[![Lint](https://github.com/mrnicholasbcarter-code/verdict-backtest/actions/workflows/lint.yml/badge.svg)](https://github.com/mrnicholasbcarter-code/verdict-backtest/actions/workflows/lint.yml)
 [![Python](https://img.shields.io/badge/python-3.10+-3776ab?logo=python&logoColor=white)](https://www.python.org/)
 [![NumPy](https://img.shields.io/badge/numpy-vectorized-013243?logo=numpy)](https://numpy.org/)
 [![Numba](https://img.shields.io/badge/numba-JIT-00A3E0?logo=numba)](https://numba.pydata.org/)
@@ -71,9 +71,9 @@ validation:
 
 ## Links
 
-- **Verdict Core**: https://github.com/verdict/verdict-core
-- **Verdict Edge**: https://github.com/verdict/verdict-edge
-- **Verdict Risk**: https://github.com/verdict/verdict-risk
+- **Verdict Core**: https://github.com/mrnicholasbcarter-code/verdict-core
+- **Verdict Edge**: https://github.com/mrnicholasbcarter-code/verdict-strategy
+- **Verdict Risk**: https://github.com/mrnicholasbcarter-code/verdict-risk
 - **RuVector**: https://github.com/ruvnet/ruvector
 
 ---
